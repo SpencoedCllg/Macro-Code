@@ -1,0 +1,29 @@
+Sub RectangleRoundedCorners9_Click()
+    Call PrintCheeseTableOnly
+End Sub
+
+Sub PrintCheeseTableOnly()
+    Dim ws As Worksheet
+    Set ws = Worksheets("Baseline_DataModel")
+
+    Dim printRange As Range
+    Set printRange = ws.Range("F16:Q25")
+
+    With ws.PageSetup
+        .PrintArea = printRange.Address
+        .Orientation = xlPortrait
+        .Zoom = False
+        .FitToPagesWide = 1
+        .FitToPagesTall = False
+        .CenterHeader = "&""Calibri,Bold""&16Cheddar & Co."
+        .LeftFooter = "&D"
+        .CenterFooter = "Page &P of &N"
+        .RightFooter = "&T"
+        .TopMargin = Application.InchesToPoints(0.75)
+        .BottomMargin = Application.InchesToPoints(0.75)
+        .LeftMargin = Application.InchesToPoints(0.5)
+        .RightMargin = Application.InchesToPoints(0.5)
+    End With
+
+    ws.PrintOut
+End Sub
