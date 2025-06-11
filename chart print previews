@@ -1,0 +1,10 @@
+Sub RectangleRoundedCorners2_Click()
+    Dim ws As Worksheet
+    Set ws = Sheets("Forecast Chart Models")
+    
+    On Error Resume Next
+    ws.ChartObjects("Chart 20").Chart.PrintPreview
+    ws.ChartObjects("Chart 21").Chart.PrintPreview
+    ws.ChartObjects("Chart 1").Chart.PrintPreview
+    On Error GoTo 0
+End Sub
